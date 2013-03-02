@@ -15,8 +15,8 @@ task :pull_posts do
       system "git reset --hard"
       system "git clean -fd"
     end
-    system "git fetch --all"
     system "git checkout blog"
+    system "git pull"
   end
   system "git add #{source_dir}/#{posts_submodule_root}"
   system "git commit -m \"Update posts\""
