@@ -225,7 +225,8 @@ task :deploy do
     Rake::Task[:generate].execute
   end
 
-  Rake::Task[:copydot].invoke(source_dir, public_dir)
+  # copydot seems buggy and is not needed
+  # Rake::Task[:copydot].invoke(source_dir, public_dir)
   Rake::Task["#{deploy_default}"].execute
 end
 
