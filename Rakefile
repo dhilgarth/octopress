@@ -2,6 +2,8 @@ require "rubygems"
 require "bundler/setup"
 require "stringex"
 
+import "octopress_extensions"
+
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "user@domain.com"
@@ -364,23 +366,6 @@ task :setup_github_pages, :repo do |t, args|
     end
   end
   puts "\n---\n## Now you can deploy to #{repo_url} with `rake deploy` ##"
-end
-
-task :pull_posts do
-  
-  cd "#{source_dir}/#{posts_submodule_root}" do
-    status = `git status --porcelain`;
-    puts status
-    unless status.empty?
-      abort("rake aborted") if ask("You have uncommitted changes. Are you sure you want to discard them?", ['y', 'n']) == 'n'
-      system "git reset --hard"
-      system "git clean -fd"
-    end
-    system "git fetch --all"
-    system "git checkout blog"
-  end
-  system "git add #{source_dir}/#{posts_submodule_root}"
-  system "git commit -m \"Update posts\""
 end
 
 def ok_failed(condition)
