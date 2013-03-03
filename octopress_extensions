@@ -40,7 +40,7 @@ task :push_posts, :message do |t, args|
       end
       abort("rake aborted") unless ask("#{status}\nThese are your uncommitted changes. Are you sure you want to commit them all?", ['y', 'n']) == 'n'
       system "git add ."
-      system "git commit -m \"#{status}\""
+      system "git commit -m \"#{message}\""
     else
       system "git checkout blog"
     end
