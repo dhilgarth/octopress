@@ -34,6 +34,7 @@ task :push_posts, :message do |t, args|
     
     unless status.empty?
       current_branch = `git rev-parse --abbrev-ref HEAD`
+      current_branch.strip!
       unless current_branch == "blog"
         abort("rake aborted") unless ask("You have uncommitted changes and you are not on branch \"blog\". Switching branches with uncommitted changes can lead to conflicts. Are you sure you want to switch?", ['y', 'n']) == 'y'
         system "git checkout blog"
