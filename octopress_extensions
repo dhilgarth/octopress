@@ -7,9 +7,9 @@ posts_submodule_root    = "_posts"    # directory the posts submodule is registe
 task :pull_posts do
   
   cd "#{source_dir}/#{posts_submodule_root}" do
-    status = `git status --porcelain`;
-    puts status
+    status = `git status --porcelain`
     unless status.empty?
+      puts status
       abort("rake aborted") if ask("You have uncommitted changes. Are you sure you want to discard them?", ['y', 'n']) == 'n'
       system "git reset --hard"
       system "git clean -fd"
