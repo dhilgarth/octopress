@@ -38,7 +38,7 @@ task :push_posts, :message do |t, args|
         abort("rake aborted") unless ask("You have uncommitted changes and you are not on branch \"blog\". Switching branches with uncommitted changes can lead to conflicts. Are you sure you want to switch?", ['y', 'n']) == 'y'
         system "git checkout blog"
       end
-      abort("rake aborted") unless ask("#{status}\nThese are your uncommitted changes. Are you sure you want to commit them all?", ['y', 'n']) == 'n'
+      abort("rake aborted") if ask("#{status}\nThese are your uncommitted changes. Are you sure you want to commit them all?", ['y', 'n']) == 'n'
       system "git add ."
       system "git commit -m \"#{message}\""
     else
