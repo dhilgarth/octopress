@@ -4,7 +4,7 @@ require "stringex"
 
 import "octopress_extensions"
 
-## -- Rsync Deploy config -- ##
+## -- Deploy config -- ##
 deploy_default = "push"
 
 # This will be configured for you when you run config_deploy
