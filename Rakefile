@@ -2,7 +2,7 @@ require "rubygems"
 require "bundler/setup"
 require "stringex"
 
-import "octopress_extensions"
+import "octopress_extensions.rb"
 
 ## -- Deploy config -- ##
 deploy_default = "push"
