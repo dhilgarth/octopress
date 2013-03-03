@@ -3,7 +3,6 @@ require "stringex"
 ## -- Config -- ##
 source_dir              = "source"    # source file directory
 posts_submodule_root    = "_posts"    # directory the posts submodule is registered at
-posts_dir               = "#{posts_submodule_root}/Publish"    # directory for blog files
 
 task :pull_posts do
   
