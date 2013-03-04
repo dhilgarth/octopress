@@ -40,13 +40,11 @@ function addSidebarToggler() {
 }
 
 function testFeatures() {
-  var features = ['maskImage'];
-  $(features).map(function(feature) {
-    if (Modernizr.testAllProps(feature)) {
-      $('html').addClass(feature);
-    } else {
-      $('html').addClass('no-'+feature);
-    }
+  var features = ['maskImage'];   
+  $(features).map(function(i,feature){     
+    Modernizr.addTest(feature,function(){
+      Modernizr.testAllProps(feature)
+    });
   });
   if ("placeholder" in document.createElement("input")) {
     $('html').addClass('placeholder');
