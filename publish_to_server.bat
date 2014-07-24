@@ -16,5 +16,5 @@ echo --------------------------------------------
 echo Pushing changed data to server
 echo --------------------------------------------
 echo.
-git push
+call git push
 pause
